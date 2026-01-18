@@ -1,0 +1,27 @@
+flavors:
+  dev:
+    app:
+      name: "Bcoom Dev"
+
+    android:
+      applicationId: "com.bcoom.dev"
+    ios:
+      bundleId: "com.bcoom.dev"
+
+  stg:
+    app:
+      name: "Bcoom Staging"
+
+    android:
+      applicationId: "com.bcoom.stg"
+    ios:
+      bundleId: "com.bcoom.stg"
+
+  prod:
+    app:
+      name: "Bcoom"
+
+    android:
+      applicationId: "com.bcoom.app"
+    ios:
+      bundleId: "com.bcoom.app"
