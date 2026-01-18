@@ -499,7 +499,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F7A13514205EDC598C8098CE /* stgDebug.xcconfig */;
 			buildSettings = {
-				DEVELOPMENT_TEAM = HSX2XFJKSG;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = "Debug-stg";
@@ -585,11 +584,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F53949C9561C2BAA572D5087 /* prodRelease.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HSX2XFJKSG;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = "Release-prod";
 		};
@@ -647,7 +642,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5F27C1F3C7992D46C24DAC39 /* stgRelease.xcconfig */;
 			buildSettings = {
-				DEVELOPMENT_TEAM = HSX2XFJKSG;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = "Release-stg";
@@ -656,11 +650,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BE10BDE5BD080D01C91E8B77 /* prodProfile.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HSX2XFJKSG;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = "Profile-prod";
 		};
@@ -810,7 +800,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9568D7333F4258E3A50760CB /* stgProfile.xcconfig */;
 			buildSettings = {
-				DEVELOPMENT_TEAM = HSX2XFJKSG;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = "Profile-stg";
@@ -819,7 +808,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CE40D1A0137D733090DD98A0 /* devDebug.xcconfig */;
 			buildSettings = {
-				DEVELOPMENT_TEAM = HSX2XFJKSG;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = "Debug-dev";
@@ -900,7 +888,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4B78F19BEBEFA34E2665C301 /* devProfile.xcconfig */;
 			buildSettings = {
-				DEVELOPMENT_TEAM = HSX2XFJKSG;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = "Profile-dev";
@@ -979,7 +966,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1630A26B28EA47226BF25DE2 /* devRelease.xcconfig */;
 			buildSettings = {
-				DEVELOPMENT_TEAM = HSX2XFJKSG;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = "Release-dev";
@@ -1514,11 +1500,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 8431A78B6B787D5EAD1DAFBF /* prodDebug.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HSX2XFJKSG;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = "Debug-prod";
 		};

@@ -2,6 +2,7 @@ flavors:
   dev:
     app:
       name: "Bcoom Dev"
+      icon: "assets/logos/app_icon.png"
 
     android:
       applicationId: "com.bcoom.dev"
@@ -11,6 +12,7 @@ flavors:
   stg:
     app:
       name: "Bcoom Staging"
+      icon: "assets/logos/app_icon.png"
 
     android:
       applicationId: "com.bcoom.stg"
@@ -20,6 +22,7 @@ flavors:
   prod:
     app:
       name: "Bcoom"
+      icon: "assets/logos/app_icon.png"
 
     android:
       applicationId: "com.bcoom.app"
