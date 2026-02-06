@@ -10,7 +10,7 @@ class HomeProductController extends GetxController {
     required GetHomeProductUseCase getHomeProductUseCase,
   }) : _getHomeProductUseCase = getHomeProductUseCase;
 
-  Future<void> getHomeProduct({required Map<String, dynamic> keywords}) async {
+  Future<void> getHomeProduct({required String keywords}) async {
     isLoading.value = true;
     try {
       final result = await _getHomeProductUseCase(GetHomeProductParams(

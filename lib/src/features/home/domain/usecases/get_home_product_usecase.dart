@@ -18,7 +18,7 @@ class GetHomeProductUseCase extends UseCase<Map<String, dynamic>, GetHomeProduct
 }
 
 class GetHomeProductParams {
-  final Map<String, dynamic> keywords;
+  final String keywords;
 
   GetHomeProductParams({
     required this.keywords,

@@ -29,10 +29,8 @@ class _HomeElementProductState extends State<HomeElementProduct> {
       tag: (widget.key as ValueKey<String>).value,
     );
 
-    Map<String, dynamic> keywords = jsonDecode(widget.data['keywords']);
-
     _controller.getHomeProduct(
-      keywords: keywords,
+      keywords: widget.data['keywords'].toString(),
     );
   }
 

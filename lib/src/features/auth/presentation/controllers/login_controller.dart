@@ -81,6 +81,7 @@ class LoginController extends GetxController {
 
       authResponse.fold(
         (failure) {
+          print(failure.runtimeType);
           switch (failure) {
             case EmailNotVerifiedFailure():
               Get.toNamed(AppPageNames.accountVerification, arguments: failure.authResponse);

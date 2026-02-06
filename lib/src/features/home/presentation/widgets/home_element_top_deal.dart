@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:logger/web.dart';
+
 import '../../../../core/routers/app_page_names.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/utils/currency_utils.dart';
@@ -13,6 +15,23 @@ import 'package:material_symbols_icons/symbols.dart';
 
 import '../../domain/usecases/get_home_product_usecase.dart';
 import '../controllers/home_product_controller.dart';
+
+Map<String, dynamic> parseKeywords(dynamic raw) {
+  if (raw == null) return {};
+
+  // If backend ever fixes it and returns Map directly
+  if (raw is Map<String, dynamic>) return raw;
+
+  if (raw is String) {
+    final decoded = jsonDecode(raw);
+    return {
+      'product_sort': decoded['product_sort'],
+      'product_ids': (decoded['product_ids'] as List?)?.map((e) => int.parse(e.toString()).toString()).toList(),
+    };
+  }
+
+  return {};
+}
 
 class HomeElementTopDeal extends StatefulWidget {
   const HomeElementTopDeal({super.key, required this.data});
@@ -34,10 +53,8 @@ class _HomeElementTopDealState extends State<HomeElementTopDeal> {
       tag: (widget.key as ValueKey<String>).value,
     );
 
-    Map<String, dynamic> keywords = jsonDecode(widget.data['keywords']);
-
     _controller.getHomeProduct(
-      keywords: keywords,
+      keywords: widget.data['keywords'].toString(),
     );
   }
 

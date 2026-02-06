@@ -1,4 +1,5 @@
 import 'package:bcoom/src/core/services/remote_datasrouce.dart';
+import 'package:logger/web.dart';
 
 import '../../../../core/network/unauthorized_client.dart';
 import '../../domain/entities/brand_list_entity.dart';
@@ -19,7 +20,7 @@ abstract class HomeRemoteDataSource {
     required String? search,
     required String? sort,
   });
-  Future<Map<String, dynamic>> getHomeProduct(Map<String, dynamic> keywords);
+  Future<Map<String, dynamic>> getHomeProduct(String keywords);
   Future<CollectionListEntity> getCollectionList();
 }
 
@@ -79,10 +80,9 @@ class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
   }
 
   @override
-  Future<Map<String, dynamic>> getHomeProduct(Map<String, dynamic> keywords) async {
+  Future<Map<String, dynamic>> getHomeProduct(String keywords) async {
     final response = await _unauthorizedClient.get(
-      '/api/products/home',
-      query: keywords.map((key, value) => MapEntry(key.toString(), value.toString())),
+      "/api/products/home?$keywords",
     );
 
     RemoteDataSource.handleResponse(response);

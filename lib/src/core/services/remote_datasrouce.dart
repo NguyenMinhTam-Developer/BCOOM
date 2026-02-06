@@ -1,3 +1,6 @@
+import 'package:bcoom/src/features/auth/data/models/auth_response_model.dart';
+import 'package:bcoom/src/features/auth/domain/entities/auth_response.dart';
+
 import '../errors/exception.dart';
 import 'package:get/get.dart';
 
@@ -8,6 +11,13 @@ class RemoteDataSource {
         statusCode: response.statusCode,
         status: response.body?['status'],
         description: extractErrorMessage(response.body),
+      );
+    }
+
+    if (response.statusCode == 201 && response.body?['status'] == 'error' && response.body?['data']?['error'] == 'EMAIL_NOT_VERIFIED') {
+      throw EmailNotVerifiedException(
+        description: response.body?['description'],
+        authResponse: AuthResponseModel.fromJson(response.body),
       );
     }
 

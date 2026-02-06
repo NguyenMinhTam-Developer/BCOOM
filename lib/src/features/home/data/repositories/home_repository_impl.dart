@@ -64,7 +64,7 @@ class HomeRepositoryImpl implements HomeRepository {
   }
 
   @override
-  Future<Either<HomeFailure, Map<String, dynamic>>> getHomeProduct(Map<String, dynamic> keywords) async {
+  Future<Either<HomeFailure, Map<String, dynamic>>> getHomeProduct(String keywords) async {
     try {
       final response = await remoteDataSource.getHomeProduct(keywords);
       return Right(response);

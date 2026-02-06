@@ -1,3 +1,5 @@
+import 'package:flutter/foundation.dart';
+
 import '../../../../core/routers/app_page_names.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
@@ -61,6 +63,16 @@ class ForgotPasswordController extends GetxController {
       Get.snackbar('Thất bại', e.toString(), snackPosition: SnackPosition.TOP);
     } finally {
       isLoading.value = false;
+    }
+  }
+
+  @override
+  void onInit() {
+    // TODO: implement onInit
+    super.onInit();
+
+    if (kDebugMode) {
+      emailController.text = 'nguyenminhtam.developer@gmail.com';
     }
   }
 }

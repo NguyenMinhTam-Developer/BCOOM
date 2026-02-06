@@ -104,13 +104,6 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
 
     var authResponse = AuthResponseModel.fromJson(response.body);
 
-    if (authResponse.data.user.emailVerifiedAt == null) {
-      throw EmailNotVerifiedException(
-        description: 'Email chưa được xác thực',
-        authResponse: authResponse,
-      );
-    }
-
     return authResponse;
   }
 
@@ -294,7 +287,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
     final response = await _unauthorizedClient.post(
       '/api/customers/auth/forgot-password',
       {
-        'phone': email,
+        'email': email,
       },
     );
 

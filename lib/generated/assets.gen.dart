@@ -192,6 +192,12 @@ class $AssetsSvgsIconsGen {
   /// File path: assets/svgs/icons/LibraryActive.svg
   SvgGenImage get libraryActive => const SvgGenImage('assets/svgs/icons/LibraryActive.svg');
 
+  /// File path: assets/svgs/icons/Menu.svg
+  SvgGenImage get menu => const SvgGenImage('assets/svgs/icons/Menu.svg');
+
+  /// File path: assets/svgs/icons/MenuActive.svg
+  SvgGenImage get menuActive => const SvgGenImage('assets/svgs/icons/MenuActive.svg');
+
   /// File path: assets/svgs/icons/Notification.svg
   SvgGenImage get notification => const SvgGenImage('assets/svgs/icons/Notification.svg');
 
@@ -274,7 +280,7 @@ class $AssetsSvgsIconsGen {
   SvgGenImage get topDeal => const SvgGenImage('assets/svgs/icons/top_deal.svg');
 
   /// List of all assets
-  List<dynamic> get values => [avatar, categories, chart, chartActive, filter, heart, home, homeActive, leftArrown, library, libraryActive, notification, offerMore, profile, profileActive, search, searchNoResult, shoppingCart, aboutUsPng, aboutUsSvg, appInfoPng, appInfoSvg, cards, contactSupportPng, contactSupportSvg, faq, freeShip, genuine, guideline, highValue, hotDeal, like, onboardingBg2, policyAndTermPng, policyAndTermSvg, returnPolicy, settings, topDeal];
+  List<dynamic> get values => [avatar, categories, chart, chartActive, filter, heart, home, homeActive, leftArrown, library, libraryActive, menu, menuActive, notification, offerMore, profile, profileActive, search, searchNoResult, shoppingCart, aboutUsPng, aboutUsSvg, appInfoPng, appInfoSvg, cards, contactSupportPng, contactSupportSvg, faq, freeShip, genuine, guideline, highValue, hotDeal, like, onboardingBg2, policyAndTermPng, policyAndTermSvg, returnPolicy, settings, topDeal];
 }
 
 class $AssetsSvgsOnboardingGen {

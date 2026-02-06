@@ -17,6 +17,6 @@ abstract class HomeRepository {
     required String? sort,
   });
 
-  Future<Either<HomeFailure, Map<String, dynamic>>> getHomeProduct(Map<String, dynamic> keywords);
+  Future<Either<HomeFailure, Map<String, dynamic>>> getHomeProduct(String keywords);
   Future<Either<HomeFailure, CollectionListEntity>> getCollectionList();
 }

@@ -1,6 +1,8 @@
+import 'package:bcoom/src/core/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:pinput/pinput.dart';
 
 import '../../../../shared/layouts/page_loading_indicator.dart';
@@ -16,6 +18,7 @@ class GenericOtpVerificationPage extends GetView<GenericOtpVerificationControlle
         future: null,
         focedLoading: controller.isLoading.value,
         scaffold: Scaffold(
+          appBar: AppBar(),
           body: SafeArea(
             child: Padding(
               padding: EdgeInsets.symmetric(vertical: 24.h),
@@ -34,12 +37,12 @@ class GenericOtpVerificationPage extends GetView<GenericOtpVerificationControlle
                   //   ),
                   // ),
                   Text(
-                    'Xác thực OTP',
+                    'Nhập mã OTP',
                     textAlign: TextAlign.center,
-                    style: context.textTheme.titleLarge?.copyWith(
+                    style: GoogleFonts.inter(
+                      fontSize: 24.sp,
                       fontWeight: FontWeight.w700,
-                      fontSize: 18.sp,
-                      color: Color(0xFF455A64),
+                      color: AppColors.text500,
                     ),
                   ),
                   Expanded(
@@ -48,45 +51,35 @@ class GenericOtpVerificationPage extends GetView<GenericOtpVerificationControlle
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
-                          _buildPinPut(),
-                          SizedBox(height: 24.h),
                           RichText(
                             textAlign: TextAlign.center,
                             text: TextSpan(
-                              style: context.textTheme.bodyMedium?.copyWith(
+                              style: GoogleFonts.inter(
                                 fontSize: 14.sp,
-                                color: Colors.black,
+                                fontWeight: FontWeight.w400,
+                                color: AppColors.text400,
                               ),
                               children: [
                                 TextSpan(
-                                  text: 'Mã xác thực đã gửi đến Zalo có số  ',
+                                  text: 'Vui lòng nhập mã xác thực được gửi đến email ',
                                 ),
                                 TextSpan(
-                                  text: controller.email,
+                                  text: _getPartialEmail(controller.email),
                                   style: TextStyle(fontWeight: FontWeight.w700),
                                 ),
-                                TextSpan(
-                                  text: ', vui lòng kiểm tra để lấy mã xác thực tài khoản.',
-                                ),
+                                // TextSpan(
+                                //   text: ' của bạn.',
+                                // ),
                               ],
                             ),
                           ),
                           SizedBox(height: 32.h),
-                          Align(
-                            child: Obx(
-                              () => FilledButton(
-                                onPressed: controller.isLoading.value ? null : () => controller.verifyOtp(controller.otpController.text),
-                                child: Text('Xác thực'),
-                              ),
-                            ),
-                          ),
+                          _buildPinPut(),
                           SizedBox(height: 24.h),
-                          Text(
-                            "Không nhận được mã xác thực?",
-                            textAlign: TextAlign.center,
-                            style: context.textTheme.bodyMedium?.copyWith(
-                              fontSize: 16.sp,
-                              color: Colors.black,
+                          Obx(
+                            () => FilledButton(
+                              onPressed: controller.isLoading.value ? null : () => controller.verifyOtp(controller.otpController.text),
+                              child: Text('Xác thực'),
                             ),
                           ),
                           SizedBox(height: 8.h),
@@ -120,8 +113,8 @@ class GenericOtpVerificationPage extends GetView<GenericOtpVerificationControlle
 
   Widget _buildPinPut() {
     final defaultPinTheme = PinTheme(
-      width: 48.w,
-      height: 80.h,
+      width: 40.w,
+      height: 40.h,
       textStyle: TextStyle(
         fontSize: 20.sp,
         color: Color.fromRGBO(30, 60, 87, 1),
@@ -140,4 +133,17 @@ class GenericOtpVerificationPage extends GetView<GenericOtpVerificationControlle
       onCompleted: (pin) => controller.verifyOtp(pin),
     );
   }
+}
+
+String _getPartialEmail(String email) {
+  if (!email.contains('@')) {
+    return email;
+  }
+  final parts = email.split('@');
+  final local = parts[0];
+  final domain = parts[1];
+  if (local.length > 3) {
+    return '${local.substring(0, 3)}...@$domain';
+  }
+  return email;
 }

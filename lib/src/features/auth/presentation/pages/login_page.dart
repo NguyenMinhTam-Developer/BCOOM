@@ -1,3 +1,4 @@
+import '../../../../core/routers/app_page_names.dart';
 import '../../../../shared/components/input_label.dart';
 
 import '../../../../shared/components/buttons.dart';
@@ -105,9 +106,12 @@ class LoginPage extends GetView<LoginController> {
                   label: controller.isLoading.value ? "Đang đăng nhập..." : "Đăng nhập",
                 ),
               ),
-              Text(
-                "Quên mật khẩu?",
-                style: AppTextStyles.label14.copyWith(color: AppColors.text400),
+              GestureDetector(
+                onTap: () => Get.toNamed(AppPageNames.forgotPassword),
+                child: Text(
+                  "Quên mật khẩu?",
+                  style: AppTextStyles.label14.copyWith(color: AppColors.text400),
+                ),
               ),
             ],
           ),

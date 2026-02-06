@@ -26,9 +26,6 @@ class ServicesDI {
       fenix: true,
     );
 
-    // // Initialize Firebase Messaging Service
-    // Get.put(FirebaseMessagingService(), permanent: true);
-
     await Get.putAsync(
       () => SessionService(
         authRepository: AuthRepositoryImpl(

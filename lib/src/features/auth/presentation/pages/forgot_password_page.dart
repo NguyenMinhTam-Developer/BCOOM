@@ -5,6 +5,7 @@ import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:get/get.dart';
 import 'package:material_symbols_icons/symbols.dart';
 
+import '../../../../shared/components/input_label.dart';
 import '../../../../shared/layouts/page_loading_indicator.dart';
 import '../controllers/forgot_password_controller.dart';
 
@@ -18,6 +19,9 @@ class ForgotPasswordPage extends GetView<ForgotPasswordController> {
         future: null,
         focedLoading: controller.isLoading.value,
         scaffold: Scaffold(
+          appBar: AppBar(
+              // title: Text('Quên mật khẩu'),
+              ),
           body: SafeArea(
             child: Padding(
               padding: EdgeInsets.symmetric(vertical: 24.h),
@@ -46,7 +50,7 @@ class ForgotPasswordPage extends GetView<ForgotPasswordController> {
                   ),
                   Expanded(
                     child: SingleChildScrollView(
-                      padding: EdgeInsets.symmetric(horizontal: 32.w),
+                      padding: EdgeInsets.symmetric(horizontal: 16.w),
                       child: Obx(
                         () => FormBuilder(
                           key: controller.formKey,
@@ -55,27 +59,25 @@ class ForgotPasswordPage extends GetView<ForgotPasswordController> {
                             spacing: 16.h,
                             crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: [
-                              FormBuilderTextField(
-                                name: 'phone',
-                                controller: controller.emailController,
-                                textInputAction: TextInputAction.done,
-                                decoration: InputDecoration(
-                                  labelText: 'Số điện thoại',
-                                  border: UnderlineInputBorder(),
-                                  prefixIcon: Icon(Symbols.alternate_email_rounded),
+                              InputLabel(
+                                label: 'Email',
+                                child: FormBuilderTextField(
+                                  name: 'email',
+                                  controller: controller.emailController,
+                                  textInputAction: TextInputAction.done,
+                                  decoration: InputDecoration(
+                                    hintText: 'Nhập email',
+                                  ),
+                                  validator: FormBuilderValidators.compose([
+                                    FormBuilderValidators.required(errorText: 'Email không được để trống'),
+                                    FormBuilderValidators.email(errorText: 'Email không hợp lệ'),
+                                  ]),
+                                  onSubmitted: (value) => controller.sendResetPasswordRequest(),
                                 ),
-                                validator: FormBuilderValidators.compose([
-                                  FormBuilderValidators.required(errorText: 'Số điện thoại không được để trống'),
-                                  FormBuilderValidators.numeric(errorText: 'Số điện thoại không hợp lệ'),
-                                ]),
-                                onSubmitted: (value) => controller.sendResetPasswordRequest(),
                               ),
-                              Align(
-                                alignment: Alignment.center,
-                                child: FilledButton(
-                                  onPressed: controller.isLoading.value ? null : controller.sendResetPasswordRequest,
-                                  child: Text('Gửi mã xác thực'),
-                                ),
+                              FilledButton(
+                                onPressed: controller.isLoading.value ? null : controller.sendResetPasswordRequest,
+                                child: Text('Gửi'),
                               ),
                             ],
                           ),

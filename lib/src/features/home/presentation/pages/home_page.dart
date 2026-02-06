@@ -36,7 +36,7 @@ class HomePage extends GetView<HomeController> {
         () {
           final sessionService = Get.find<SessionService>();
           final isCustomer = sessionService.currentUser.value?.customerType == 'customer';
-          
+
           return IndexedStack(
             index: controller.currentIndex.value,
             children: [
@@ -56,9 +56,9 @@ class HomePage extends GetView<HomeController> {
             width: double.infinity,
             child: Stack(
               children: [
-                Positioned.fill(
-                  child: Assets.svgs.shapes.bottomNavigationShape.svg(),
-                ),
+                // Positioned.fill(
+                //   child: Assets.svgs.shapes.bottomNavigationShape.svg(),
+                // ),
                 Positioned(
                   height: 62.h,
                   bottom: 28.h,
@@ -68,7 +68,7 @@ class HomePage extends GetView<HomeController> {
                     () {
                       final sessionService = Get.find<SessionService>();
                       final isCustomer = sessionService.currentUser.value?.customerType == 'customer';
-                      
+
                       return Row(
                         spacing: 12.75.w,
                         crossAxisAlignment: CrossAxisAlignment.end,
@@ -90,20 +90,20 @@ class HomePage extends GetView<HomeController> {
                           ),
                           _buildBottomNavigationBarItem(
                             onTap: () => controller.currentIndex.value = 1,
-                            label: 'Thư viện',
-                            icon: Assets.svgs.icons.library.svg(
+                            label: 'Sản phẩm',
+                            icon: Assets.svgs.icons.menu.svg(
                               colorFilter: ColorFilter.mode(AppColors.text500, BlendMode.srcIn),
                               width: 20.h,
                               height: 20.h,
                             ),
-                            activeIcon: Assets.svgs.icons.libraryActive.svg(
+                            activeIcon: Assets.svgs.icons.menuActive.svg(
                               colorFilter: ColorFilter.mode(AppColors.primaryColor, BlendMode.srcIn),
                               width: 20.h,
                               height: 20.h,
                             ),
                             isActive: controller.currentIndex.value == 1,
                           ),
-                          _buildFabButton(),
+                          // _buildFabButton(),
                           _buildBottomNavigationBarItem(
                             onTap: () => controller.currentIndex.value = 2,
                             label: isCustomer ? 'Đơn hàng' : 'Doanh số',
@@ -169,6 +169,7 @@ class HomePage extends GetView<HomeController> {
     return Expanded(
       child: InkWell(
         onTap: onTap,
+        // borderRadius: BorderRadius.circular(100.r),
         child: Column(
           spacing: 4.h,
           mainAxisAlignment: MainAxisAlignment.end,
